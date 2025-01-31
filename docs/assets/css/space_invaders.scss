@@ -1,0 +1,175 @@
+---
+---
+
+/* Variables */
+:root {
+  --pixel-size: 2px;
+  --grid-cell: 8px;
+  --bg-color: #000;
+  --invader-color: #fff;
+  --laser-color: #f00;
+  --text-color: #0f0;
+  --font-family: "Press Start 2P", monospace;
+}
+
+/* Base styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Header styles */
+.site-header {
+  border-bottom: 4px solid var(--text-color);
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.site-title {
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* Navigation */
+.site-nav {
+  margin: 10px 0;
+}
+
+.site-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin-right: 20px;
+  position: relative;
+}
+
+.site-nav a:hover::before {
+  content: ">";
+  position: absolute;
+  left: -20px;
+  top: 50%; /* Position at 50% from the top */
+  transform: translateY(-50%); /* Move up by half its height */
+}
+
+/* Posts and content */
+.post {
+  border: 2px solid var(--text-color);
+  padding: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.post::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Animations */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Footer */
+.site-footer {
+  border-top: 4px solid var(--text-color);
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+  :root {
+    --pixel-size: 1px;
+    --grid-cell: 6px;
+  }
+
+  .site-title {
+    font-size: 1.5em;
+  }
+}
+
+/* Links */
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+
+a:hover {
+  animation: blink 1s infinite;
+}
+
+/* Code blocks */
+pre,
+code {
+  background-color: #111;
+  border: 1px solid var(--text-color);
+  padding: 10px;
+  font-family: "Courier New", monospace;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: ">";
+  color: var(--text-color);
+  margin-right: 10px;
+}
+
+.container {
+  width: 130px; /* 15 columns × 5px = 75px */
+  height: 75px; /* 15 rows × 5px = 75px */
+  background: black;
+}
+
+.pixel {
+  float: left;
+  /* width, height are set inline from JS so you can easily vary pixelSize */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* if you DO want a tiny gap or border: 
+     border: 1px solid #333; 
+  */
+}
+
+.sprite-container {
+  /* This gets width/height from JS inline styles */
+  font-size: 0; /* eliminate whitespace gaps inside container */
+  position: relative;
+  margin: 20px; /* space around each sprite */
+  /* No extra border or margin on .pixel unless you want them. */
+}
