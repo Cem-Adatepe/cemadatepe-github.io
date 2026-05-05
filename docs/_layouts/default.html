@@ -3,252 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title | escape }}</title>
+    <title>{{ site.title | escape }}</title>
+    <meta name="description" content="{{ site.description | strip_newlines }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="{{ '/assets/css/space_invaders.css' | relative_url }}"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
-    <header class="site-header">
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        "
-      >
-        <h1 class="site-title">Cem Adatepe</h1>
-        <div id="sprite-area-2"></div>
-      </div>
-      <nav class="site-nav">
-        <a href="/">About</a>
-        <a href="#projects">Projects</a>
-        <!-- <a href="/posts">Posts</a> -->
-      </nav>
-    </header>
-    <p style="max-width: 67%">
-      Hey, my name is Cem Adatepe and I am a third year CS student at CMU. I'm
-      broadly interested in agentic AI, quantitative finance, and creating cool
-      products. <br /><br />
-      Currently building
-      <a href="https://inbound.fyi/" target="_blank" style="color: white"
-        >inbound.fyi</a
-      >
-      with
-      <a href="https://jchencxh.com/" target="_blank" style="color: white"
-        >James Chen</a
-      >
-      and
-      <a href="https://hkamran.com/" target="_blank" style="color: white"
-        >H. Kamran</a
-      >. <br /><br /><br /><br />
-      Here's an overview of where I've been:<br /><br />
-    </p>
-    <div style="display: flex; align-items: center; margin: 20px 0">
-      <div id="sprite-area-1"></div>
-      <p style="margin-left: 20px">
-        Incoming Quantitative Trading Intern @ Citadel Securities
-      </p>
-      <p style="text-align: right; margin-left: auto">June - August 2025</p>
-    </div>
+    <main>
+      <header>
+        <h1>Cem Adatepe</h1>
+      </header>
 
-    <div style="display: flex; align-items: center; margin: 20px 0">
-      <div id="sprite-area-3"></div>
-      <p style="margin-left: 20px">
-        Software Development Engineer Intern @ Amazon
-      </p>
-      <p style="text-align: right; margin-left: auto">May - August 2024</p>
-    </div>
-    <div style="display: flex; align-items: center; margin: 20px 0">
-      <div
-        style="
-          font-size: 42px;
-          color: black;
-          text-shadow: -1px -1px 0 beige, 1px -1px 0 beige, -1px 1px 0 beige,
-            1px 1px 0 beige;
-        "
-      >
-        AREA
-      </div>
-      <p style="margin-left: 20px">Interim CTO @ Area</p>
-      <p style="text-align: right; margin-left: auto">May - August 2023</p>
-    </div>
-    <p id="projects">
-      <br />
-      <br />Here are some projects I've worked on: <br /><br />
-    </p>
-    <div style="display: flex; align-items: center; margin: 20px 0">
-      <div
-        style="
-          font-size: 42px;
-          color: black;
-          text-shadow: -1px -1px 0 beige, 1px -1px 0 beige, -1px 1px 0 beige,
-            1px 1px 0 beige;
-        "
-      >
-        <img src="assets/agi.png" style="width: 170px" />
-      </div>
-      <p style="margin-left: 20px">AGI House Hackathon Grand Prize Winner</p>
-      <p style="text-align: right; margin-left: auto">Jan 2024</p>
-    </div>
-    <div style="display: flex; align-items: center; margin: 20px 0">
-      <div
-        style="
-          font-size: 42px;
-          color: black;
-          text-shadow: -1px -1px 0 beige, 1px -1px 0 beige, -1px 1px 0 beige,
-            1px 1px 0 beige;
-        "
-      >
-        <img src="assets/gs.png" style="width: 170px" />
-      </div>
-      <p style="margin-left: 20px">Goldman Sachs Quantathon 2nd Place</p>
-      <p style="text-align: right; margin-left: auto">Feb 2024</p>
-    </div>
-    <script src="pixelSprite.js"></script>
-    <script>
-      // EXAMPLE: A single-frame shape (static) with the Citadel pattern
-      const citadelFrame = [
-        // citadel securities
-        1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1,
-        1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-      ];
+      <section class="bio">
+        <p>
+          Incoming Master's student in Machine Learning at Carnegie Mellon. I
+          enjoy working on technically challenging problems that require both
+          theoretical understanding and empirical inquiry.
+        </p>
+        
+      </section>
 
-      // We'll pass an array of "frames." If we only have 1, it won't animate.
-      const citadelFrames = [citadelFrame];
+      <section>
+        <h2>Experience</h2>
+        <ul class="entries">
+          <li>
+            <span class="role">Algorithmic Trader Intern, Hudson River Trading</span>
+            <span class="date">May&ndash;Aug 2026</span>
+          </li>
+          <li>
+            <span class="role">Quantitative Trading Intern, Citadel Securities</span>
+            <span class="date">Jun&ndash;Aug 2025</span>
+          </li>
+          <li>
+            <span class="role">Software Development Engineer Intern, Amazon</span>
+            <span class="date">May&ndash;Aug 2024</span>
+          </li>
+          <li>
+            <span class="role">Interim CTO, Area</span>
+            <span class="date">May&ndash;Aug 2023</span>
+          </li>
+        </ul>
+      </section>
 
-      // Create a Citadel Sprite (static)
-      const citadelSprite = new PixelSprite({
-        frames: citadelFrames,
-        rows: 11,
-        cols: 25,
-        mountPoint: "#sprite-area-1",
-        pixelSize: 5,
-        colorOn: "white", // "1" bits show up as lime
-        colorOff: "black",
-        toggleFrames: false, // no flipping
-        frameInterval: 500,
-      });
+      <section>
+        <h2>Education</h2>
+        <ul class="entries">
+          <li>
+            <span class="role">M.S. in Machine Learning, Carnegie Mellon</span>
+            <span class="date">2026&ndash;2027</span>
+          </li>
+          <li>
+            <span class="role">B.S. in Computer Science, Carnegie Mellon</span>
+            <span class="date">2022&ndash;2026</span>
+          </li>
+        </ul>
+      </section>
 
-      const invaderFrames = [
-        [
-          // FRAME 1
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
-          1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
-          0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-          1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1,
-          0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        ],
-        [
-          // FRAME 2
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
-          1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0,
-          1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-          1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0,
-          0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-          1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        ],
-      ];
-      const invaderDeathFrames = [
-        [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
-          1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
-          1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        ],
-      ];
-      // Create an Invader Sprite (animated)
-      const invaderSprite = new PixelSprite({
-        frames: invaderFrames,
-        rows: 15,
-        cols: 15,
-        mountPoint: "#sprite-area-2",
-        pixelSize: 5,
-        colorOn: "lime",
-        colorOff: "black",
-        toggleFrames: true, // animate
-        frameInterval: 300, // flip frames every 300ms
-        clickFrames: invaderDeathFrames,
-        clickFrameDuration: 1500,
-      });
+      <section>
+        <h2>Projects</h2>
+        <ul class="entries">
+          <li>
+            <span class="role"><a href="https://github.com/tanmaylaud/suRAGeon" target="_blank" rel="noopener">AGI House Hackathon</a> &mdash; Grand Prize Winner</span>
+            <span class="date">Jan 2024</span>
+          </li>
+          <li>
+            <span class="role"><a href="https://www.cmu.edu/news/stories/archives/2024/March/quantathon" target="_blank" rel="noopener">Goldman Sachs Quantathon</a> &mdash; 2nd Place</span>
+            <span class="date">Feb 2024</span>
+          </li>
+        </ul>
+      </section>
 
-      const amazonFrame = [
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-        0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
-        0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      ];
-      // We'll pass an array of "frames." If we only have 1, it won't animate.
-      const amazonFrames = [amazonFrame];
-
-      // Create a Citadel Sprite (static)
-      const amazonSprite = new PixelSprite({
-        frames: amazonFrames,
-        rows: 9,
-        cols: 26,
-        mountPoint: "#sprite-area-3",
-        pixelSize: 5,
-        colorOn: "orange", // "1" bits show up as lime
-        colorOff: "black",
-        toggleFrames: false, // no flipping
-        frameInterval: 500,
-      });
-      // If you have more shapes, just create more PixelSprite instances,
-      // each with different frames, colors, etc.
-    </script>
-    <div class="social-links" style="text-align: center; margin-top: 40px">
-      <a href="https://www.linkedin.com/in/Cem-Adatepe" target="_blank">
-        <img
-          src="assets/icons/linkedin_pixelated.png"
-          style="width: 40px; height: 40px"
-          alt="LinkedIn"
-        />
-      </a>
-      <a href="https://github.com/Cem-Adatepe" target="_blank">
-        <img
-          src="assets/icons/github_pixelated.png"
-          style="width: 40px; height: 40px"
-          alt="GitHub"
-        />
-      </a>
-    </div>
+      <footer>
+        <a href="https://www.linkedin.com/in/Cem-Adatepe" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">&middot;</span>
+        <a href="https://github.com/Cem-Adatepe" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">&middot;</span>
+        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener">Twitter</a>
+        <span class="sep">&middot;</span>
+        <a href="mailto:{{ site.email }}">Email</a>
+      </footer>
+    </main>
   </body>
 </html>
