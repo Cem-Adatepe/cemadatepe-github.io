@@ -21,7 +21,7 @@
 title: Cem Adatepe's Personal Website
 email: chadatepe@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Cem Adatepe's personal website. He is a junior at CMU, interested in AI agents, quantitative finance, and creating cool products.
+  Cem Adatepe is a Carnegie Mellon Computer Science graduate and Algorithm Developer at Hudson River Trading.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "cemadatepe.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: cemm3r
